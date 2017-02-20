@@ -1,14 +1,5 @@
 #include <gtest/gtest.h>
-
 #include "GildedRose.h"
-
-TEST(GildedRoseTest, Foo) {
-    vector<Item> items;
-    items.push_back(Item("Foo", 0, 0));
-    GildedRose app(items);
-    app.updateQuality();
-    EXPECT_EQ("fixme", app.items[0].name);
-}
 
 TEST(GildedRoseTest, QuailtyNeverNegative)
 {
@@ -17,6 +8,19 @@ TEST(GildedRoseTest, QuailtyNeverNegative)
 	GildedRose app(items);
 	app.updateQuality();
 	EXPECT_FALSE(app.items[0].quality < 0);
+}
+
+TEST(GildedRoseTest, QualityDegradeIncreasePastSellDate)
+{
+	vector<Item> items;
+	items.push_back(Item("DegradeItem", 6, 18));
+	GildedRose app(items);
+	for (int day = 0; day <= 10; day++)
+	{
+		app.updateQuality();
+	}
+
+	EXPECT_EQ(2, app.items[0].quality);
 }
 
 void example()
