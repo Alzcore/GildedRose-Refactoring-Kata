@@ -25,14 +25,14 @@ TEST(GildedRoseTest, QualityNeverExceedsFifty)
 TEST(GildedRoseTest, QualityDegradeRateIncreasePastSellDate)
 {
 	vector<Item> items;
-	items.push_back(Item("NewItem", 6, 18));
+	items.push_back(Item("NewItem", 10, 20));
 	GildedRose app(items);
-	for (int day = 0; day <= 10; day++)
+	for (int day = 0; day <= 12; day++)
 	{
 		app.updateQuality();
 	}
 
-	EXPECT_EQ(2, app.items[0].quality);
+	EXPECT_EQ(5, app.items[0].quality);
 }
 
 TEST(GildedRoseTest, SellInValueDecreases)
