@@ -1,2 +1,6 @@
 .idea/workspace.xml
 *.pyc
+cpp/GildedRose.sdf
+cpp/GildedRose.VC.opendb
+cpp/Release/
+cpp/.vs/
