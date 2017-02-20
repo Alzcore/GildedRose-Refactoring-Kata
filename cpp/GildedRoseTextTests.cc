@@ -1,5 +1,5 @@
 #include "GildedRose.h"
-
+#include <gtest/gtest.h>
 #include <iostream>
 
 using namespace std;
@@ -10,7 +10,7 @@ ostream& operator<<(ostream& s, Item& item)
     return s;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     vector<Item> items;
     items.push_back(Item("+5 Dexterity Vest", 10, 20));
@@ -39,4 +39,7 @@ int main()
 
         app.updateQuality();
     }
+
+	testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }

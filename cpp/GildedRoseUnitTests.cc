@@ -10,6 +10,15 @@ TEST(GildedRoseTest, Foo) {
     EXPECT_EQ("fixme", app.items[0].name);
 }
 
+TEST(GildedRoseTest, QuailtyNeverNegative)
+{
+	vector<Item> items;
+	items.push_back(Item("NeverNegativeItem", 10, 10));
+	GildedRose app(items);
+	app.updateQuality();
+	EXPECT_FALSE(app.items[0].quality < 0);
+}
+
 void example()
 {
     vector<Item> items;
